@@ -1,0 +1,18 @@
+{
+  "name": "grinder",
+  "version": "0.1.0",
+  "engines": { "node": ">= 0.4.0"},
+  "author": {
+    "name": "Federico Romero",
+    "email": "federico.romero@outboxlabs.com"
+  },
+  "dependencies": {
+    "underscore": ">= 1.1.6",
+    "coffee-script": ">= 1.1.1"
+  },
+  "repository": "git://github.com/federomero/grinder",
+  "description": "Simple router written in CoffeeScript",
+  "directories": {"lib": "./lib"},
+  "main": "./lib/router",
+  "keywords": ["router", "framework"]
+}

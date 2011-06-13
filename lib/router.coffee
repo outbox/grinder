@@ -2,7 +2,8 @@ _ = require('underscore')
 EventEmitter = require('events').EventEmitter
 
 class Route
-  constructor: (@matcher, @filters..., @handler) ->
+  constructor: (@matcher, @filters, @handler) ->
+    console.log "#{@matcher} #{@filters} -> #{@handler}"
     if _.isFunction(matcher)
       @matcher = matcher
     else if _.isString(matcher)
@@ -21,11 +22,10 @@ class Route
       if @runFilters(context, match)
         match
 
-  runFilters: (pathname, context, match) ->
+  runFilters: (context, match) ->
     for filter in @filters
       result = filter.apply(context, match.map((m) -> m[1]))
-      if result == null || result == false
-        return false
+      return false if !result
 
     return true
 
@@ -97,12 +97,12 @@ class Router extends EventEmitter
   handleMatch: (context, route, match) ->
     route.handler.apply(context, match.map((p) -> p[1]))
 
-  assign: (method, path, handler) ->
+  assign: (method, path, filters..., handler) ->
     method = method.toLowerCase()
-    route = new Route(path, handler)
+    route = new Route(path, filters, handler)
     @routes[method] ||= []
     @routes[method].push(route)
-    @emit('new-route', method, route)
+    @emit('new-route', method, route, filters, handler)
     return @
 
   mount: (path, router) ->

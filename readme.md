@@ -104,19 +104,16 @@ Example:
 You can pass filters to your routes that will be run if the route's url
 pattern matches the requested url.
 
-Filters can cancel the matching of a route by returning false or null.
+Filters can cancel the matching of a route by returning a false value.
 
 Filters will be called with `this` set to the context object.
 
-Examples
+Example
 
     posts = [...]
 
     findPost = () ->
-      if posts[@id]
-        @post = posts[@id]
-      else
-        false
+      @post = posts[@id]
 
     router.get '/post/@id', findPost, () ->
       # Only executed if the post exists
@@ -147,8 +144,8 @@ A router emits the following events:
 
 ## Testing
 
-Test are run using [nodeunit](http://github.com/caolan/nodeunit). You
-can install like running:
+Tests are run using [nodeunit](http://github.com/caolan/nodeunit). You
+can install nodeunit running:
 
     npm install -g nodeunit
 

@@ -3,7 +3,6 @@ EventEmitter = require('events').EventEmitter
 
 class Route
   constructor: (@matcher, @filters, @handler) ->
-    console.log "#{@matcher} #{@filters} -> #{@handler}"
     if _.isFunction(matcher)
       @matcher = matcher
     else if _.isString(matcher)

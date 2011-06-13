@@ -1,6 +1,6 @@
 {
   "name": "grinder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": { "node": ">= 0.4.0"},
   "author": {
     "name": "Federico Romero",

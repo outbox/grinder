@@ -14,8 +14,8 @@ for [node.js](http://nodejs.org/), inspired by [Sinatra](http://sinatrarb.com/).
 
     router = new Router()
 
-    router.get '/hello', () ->
-      @response.end('hello world')
+    router.get '/hi/@name', () ->
+      @response.end("hi #{@name}")
 
     server = http.createServer (req, res) ->
       router.dispatch({request: req, response: res})

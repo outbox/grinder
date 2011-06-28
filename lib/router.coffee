@@ -60,7 +60,7 @@ matcherFromString = (s) ->
       _.zip(keys, params)
 
 getMethod = (context) ->
-  (context.method || 'get').toLowerCase()
+  (context.method || context.request?.method || 'get').toLowerCase()
 
 getPathname = (context) ->
   url = context.url || context.request?.url || '/'

@@ -77,7 +77,7 @@ class Router extends EventEmitter
     pathname = getPathname(context)
 
     if prefix.length > 0 && pathname.indexOf(prefix) == 0
-      pathname = pathname.substr(prefix.length+1)
+      pathname = pathname.substr(prefix.length)
 
     for path, route of @mountedRouters
       if pathname.indexOf(path) == 0

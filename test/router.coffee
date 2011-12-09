@@ -1,8 +1,6 @@
 Router = require('../lib/router').Router
 _ = require('underscore')
 
-# Testing basic methods existence
-
 @["Basic constructor"] = (test) ->
   test.doesNotThrow () ->
     new Router()

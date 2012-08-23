@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/outbox/grinder.png)](http://travis-ci.org/outbox/grinder)
 # Grinder
 
 Grinder is a simple but powerful router written in [CoffeeScript](http://jashkenas.github.com/coffee-script/)
